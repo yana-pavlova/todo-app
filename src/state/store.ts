@@ -1,11 +1,9 @@
-// TODO: add case ДОБАВИТЬ МАРКЕР
-
 import { configureStore } from '@reduxjs/toolkit';
-import markerReducer from './markersSlice';
+import tasksReducer from './tasksSlice';
 
 export const store = configureStore({
 	reducer: {
-		markers: markerReducer,
+		tasks: tasksReducer,
 	},
 });
 

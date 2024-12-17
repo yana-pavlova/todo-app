@@ -1,5 +1,7 @@
+import TaskList from '../taskList/TaskList';
+
 const App: React.FC = () => {
-	return <p>Hello, I am App</p>;
+	return <TaskList />;
 };
 
 export default App;
