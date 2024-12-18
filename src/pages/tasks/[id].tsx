@@ -37,7 +37,9 @@ const TaskPage: React.FC = () => {
 		return (
 			<>
 				<div>Task not found</div>
-				<Link href="/">Go back</Link>
+				<Link className={styles.linkBack} href="/">
+					Go back
+				</Link>
 			</>
 		);
 	}
