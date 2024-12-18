@@ -1,0 +1,75 @@
+.logo {
+	cursor: pointer;
+	text-transform: uppercase;
+	color: #888;
+	font-size: 0.7em;
+	text-align: right;
+	transition: color 0.2s ease-in;
+}
+
+.main {
+	flex-grow: 1;
+}
+
+.title {
+	color: #333;
+	border-bottom: 2px solid #333;
+	text-transform: uppercase;
+}
+
+.addButton {
+	margin: 30px 0 20px;
+	background: none;
+	border: 0;
+	color: #888;
+	cursor: pointer;
+	font-family: Lato, sans-serif;
+	font-size: 15px;
+	outline: none;
+	transition: color 0.2s ease-in;
+
+	&:active {
+		color: #333;
+	}
+
+	@media (hover: hover) {
+		&:hover {
+			color: #333;
+		}
+	}
+}
+
+.error {
+	color: rgb(216, 123, 123);
+	font-size: 0.8em;
+	text-align: center;
+}
+
+.footer {
+	font-size: 0.7em;
+	color: #888;
+	text-align: center;
+}
+
+.intro {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+
+	.link {
+		color: #888;
+		text-decoration: none;
+		transition: color 0.2s ease-in;
+
+		&:active {
+			color: #333;
+		}
+
+		@media (hover: hover) {
+			&:hover {
+				color: #333;
+			}
+		}
+	}
+}

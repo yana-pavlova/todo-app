@@ -1,0 +1,97 @@
+.task {
+	display: grid;
+	align-items: center;
+	grid-template-columns: 0.2fr 4fr 1fr;
+	gap: 10px;
+	padding: 20px 0;
+	border-bottom: 1px solid #eee;
+	transition: opacity 0.3s, transform 0.3s;
+
+	&.fullView {
+		grid-template-columns: 0.2fr 4fr 1fr 1fr;
+	}
+
+	&.removing {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+}
+
+.label {
+	transition: color 0.2s ease-in;
+
+	&:active {
+		color: #888;
+	}
+
+	@media (hover: hover) {
+		&:hover {
+			cursor: pointer;
+			color: #888;
+		}
+	}
+}
+
+.completed {
+	color: #888;
+	text-decoration: line-through;
+}
+
+.button {
+	outline: none;
+	background: none;
+	border: 0px;
+	color: #888;
+	font-size: 15px;
+	font-family: Lato, sans-serif;
+	cursor: pointer;
+	transition: color 0.2s ease-in;
+
+	&:active {
+		color: #3a3a3a;
+	}
+
+	@media (hover: hover) {
+		&:hover {
+			color: #3a3a3a;
+		}
+	}
+}
+
+.removeIcon {
+	block-size: 20px;
+	transform: rotateZ(0);
+	transition: transform 200ms ease-in;
+
+	&:active {
+		transform: rotateZ(25deg);
+	}
+
+	@media (hover: hover) {
+		&:hover {
+			transform: rotateZ(25deg);
+		}
+	}
+}
+
+.linkBack {
+	background: none;
+	border: 0;
+	color: #888;
+	cursor: pointer;
+	font-family: Lato, sans-serif;
+	font-size: 15px;
+	outline: none;
+	transition: color 0.2s ease-in;
+	text-align: center;
+
+	&:active {
+		color: #3a3a3a;
+	}
+
+	@media (hover: hover) {
+		&:hover {
+			color: #3a3a3a;
+		}
+	}
+}

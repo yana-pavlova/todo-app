@@ -4,3 +4,8 @@ export type TTask = {
 	title: string;
 	completed: boolean;
 };
+
+export enum TaskType {
+	Completed = 'completed',
+	Uncompleted = 'uncompleted',
+}
