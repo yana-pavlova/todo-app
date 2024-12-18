@@ -8,7 +8,7 @@ Try it here: <a href="https://your-best-todo.netlify.app/">https://your-best-tod
 - React
 - Redux
 - Redux toolkit
-- Webpack
+- Next
 
 ## How to run the project
 
