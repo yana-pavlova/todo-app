@@ -1,6 +1,6 @@
 # To-do app
 
-Try it here: <a href="https://your-best-todo.netlify.app/">(https://your-best-todo.netlify.app/)</a>
+Try it here: <a href="https://your-best-todo.netlify.app/">https://your-best-todo.netlify.app/</a>
 
 ## Stack
 
