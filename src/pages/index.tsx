@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import styles from '../components/app/app.module.scss';
 import { useSelector } from 'react-redux';
@@ -17,7 +17,7 @@ const Home: React.FC = () => {
 			{loading && <p>Loading...</p>}
 			{error && (
 				<p className={styles.error}>
-					Something went wrong and we couldn't fetch tasks. But you can add
+					Something went wrong and we couldn&apos;t fetch tasks. But you can add
 					yours anyway!
 				</p>
 			)}

@@ -1,7 +1,8 @@
 // TODO separate fullView/smallView modes into different components
 
 import Link from 'next/link';
-import { memo, useRef, useState } from 'react';
+import Image from 'next/image';
+import { memo, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { removeTask, editTask, completeTask } from '../../store/tasksSlice';
 import { TTask } from '../../types';
@@ -13,7 +14,7 @@ interface TaskProps {
 	onRemove?: () => void;
 }
 
-const Task: React.FC<TaskProps> = memo(({ task, isFullView, onRemove }) => {
+const TaskComponent: React.FC<TaskProps> = ({ task, isFullView, onRemove }) => {
 	const dispatch = useDispatch();
 	const [isEditing, setIsEditing] = useState(false);
 	const [editValue, setEditValue] = useState(task.title);
@@ -35,7 +36,7 @@ const Task: React.FC<TaskProps> = memo(({ task, isFullView, onRemove }) => {
 
 	const handleEditEnd = () => {
 		if (editValue.trim() && editValue !== task.title) {
-			dispatch(editTask({ ...task, title: editValue.trim() }));
+			dispatch(editTask({ ...task, title: editValue }));
 		}
 		setIsEditing(false);
 	};
@@ -114,15 +115,28 @@ const Task: React.FC<TaskProps> = memo(({ task, isFullView, onRemove }) => {
 				</button>
 			)}
 			<button className={styles.button}>
-				<img
+				<Image
 					onClick={handleRemove}
 					className={styles.removeIcon}
 					src="/img/rubbish-bin.svg"
 					alt="Cross icon"
+					width={0}
+					height={0}
 				/>
 			</button>
 		</li>
 	);
+};
+
+const Task = memo(TaskComponent, (prevProps, nextProps) => {
+	return (
+		prevProps.task.id === nextProps.task.id &&
+		prevProps.task.title === nextProps.task.title &&
+		prevProps.task.completed === nextProps.task.completed &&
+		prevProps.isFullView === nextProps.isFullView
+	);
 });
+
+Task.displayName = 'Task';
 
 export default Task;

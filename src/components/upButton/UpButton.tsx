@@ -1,5 +1,6 @@
 import styles from './upButton.module.scss';
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 
 const UpButton = () => {
 	const [isHidden, setIsHidden] = useState(true);
@@ -32,10 +33,12 @@ const UpButton = () => {
 			className={`${styles.scrollToTop} ${isHidden ? 'visually-hidden' : ''}`}
 			type="button"
 		>
-			<img
+			<Image
 				className={styles.arrow}
 				src="img/arrow-up.svg"
 				alt="Arrow pointing top"
+				width={0}
+				height={0}
 			/>
 		</button>
 	);

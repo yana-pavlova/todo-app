@@ -11,7 +11,7 @@ export const TasksProvider = ({ children }: { children: React.ReactNode }) => {
 		if (!tasks.length) {
 			dispatch(fetchTasks('https://jsonplaceholder.typicode.com/todos'));
 		}
-	}, [dispatch]);
+	}, [dispatch, tasks.length]);
 
 	return <>{children}</>;
 };

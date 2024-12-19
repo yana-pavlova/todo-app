@@ -3,13 +3,15 @@ import HomeButton from '../components/homeButton/HomeButton';
 import Heading from '../components/heading/Heading';
 import styles from './add-task.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { addTask, fetchTasks, selectTasks } from '../store/tasksSlice';
+import { addTask, selectTasks } from '../store/tasksSlice';
 import { TTask } from '../types';
+import { useRouter } from 'next/router';
 
 const AddTask: React.FC = () => {
 	const dispatch = useDispatch();
 	const tasks = useSelector(selectTasks);
 	const ref = React.useRef<HTMLTextAreaElement>(null);
+	const router = useRouter();
 
 	useEffect(() => {
 		ref.current?.focus();
@@ -22,17 +24,29 @@ const AddTask: React.FC = () => {
 
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		const taskName = ref.current?.value?.trim();
-		const newTaskId = tasks.length + 1;
-		if (!taskName) return;
+		const taskName = ref.current?.value;
+		if (!taskName?.trim()) return;
+
+		const maxId = tasks.reduce(
+			(max, task) => (task.id > max ? task.id : max),
+			0
+		);
+
 		const newTask: TTask = {
-			id: newTaskId,
+			id: maxId + 1,
 			title: taskName,
 			completed: false,
 			userId: 1,
 		};
 
 		dispatch(addTask(newTask));
+
+		if (ref.current) {
+			ref.current.value = '';
+			ref.current.style.height = 'auto';
+		}
+
+		router.push('/');
 	};
 
 	return (

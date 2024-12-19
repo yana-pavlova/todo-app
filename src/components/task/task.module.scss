@@ -60,6 +60,7 @@
 
 .removeIcon {
 	block-size: 20px;
+	inline-size: 20px;
 	transform: rotateZ(0);
 	transition: transform 200ms ease-in;
 
@@ -72,4 +73,9 @@
 			transform: rotateZ(25deg);
 		}
 	}
+}
+
+.label {
+	white-space: pre-wrap;
+	word-break: break-word;
 }
