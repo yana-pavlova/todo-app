@@ -115,8 +115,9 @@ const Task: React.FC<TaskProps> = memo(({ task, isFullView, onRemove }) => {
 					Edit
 				</button>
 			)}
-			<button className={styles.button} onClick={handleRemove}>
+			<button className={styles.button}>
 				<img
+					onClick={handleRemove}
 					className={styles.removeIcon}
 					src="/img/rubbish-bin.svg"
 					alt="Cross icon"
