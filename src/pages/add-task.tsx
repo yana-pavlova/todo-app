@@ -1,9 +1,11 @@
 import React from 'react';
+import HomeButton from '../components/homeButton/HomeButton';
+import Heading from '../components/heading/Heading';
 
 const AddTask: React.FC = () => {
 	return (
-		<div>
-			<h1>Add a New Task</h1>
+		<section>
+			<Heading>Add a New Task</Heading>
 			<form>
 				<label>
 					Task Name:
@@ -11,7 +13,8 @@ const AddTask: React.FC = () => {
 				</label>
 				<button type="submit">Add Task</button>
 			</form>
-		</div>
+			<HomeButton />
+		</section>
 	);
 };
 

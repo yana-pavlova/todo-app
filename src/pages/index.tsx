@@ -7,6 +7,7 @@ import { fetchTasks } from '../store/tasksSlice';
 import TaskList from '../components/taskList/TaskList';
 import { TaskType } from '../types';
 import UpButton from '../components/upButton/UpButton';
+import Heading from '../components/heading/Heading';
 
 const Home: React.FC = () => {
 	const dispatch = useDispatch<AppDispatch>();
@@ -37,15 +38,17 @@ const Home: React.FC = () => {
 						</Link>
 					</section>
 					<section>
-						<h2 className={styles.title}>Want to add a task?</h2>
-						<button className={styles.addButton}>Add a task!</button>
+						<Heading>Want to add a task?</Heading>
+						<Link href={'/add-task'} className={styles.addButton}>
+							Add a task!
+						</Link>
 					</section>
 					<section id="uncompleted">
-						<h2 className={styles.title}>To do</h2>
+						<Heading>To do</Heading>
 						<TaskList type={TaskType.Uncompleted} />
 					</section>
 					<section id="completed">
-						<h2 className={styles.title}>Completed</h2>
+						<Heading>Completed</Heading>
 						<TaskList type={TaskType.Completed} />
 					</section>
 					<UpButton />

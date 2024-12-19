@@ -1,3 +1,5 @@
+// TODO separate fullView/smallView modes into different components
+
 import Link from 'next/link';
 import { memo, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -8,9 +10,10 @@ import styles from './task.module.scss';
 interface TaskProps {
 	task: TTask;
 	isFullView: boolean;
+	onRemove?: () => void;
 }
 
-const Task: React.FC<TaskProps> = memo(({ task, isFullView }) => {
+const Task: React.FC<TaskProps> = memo(({ task, isFullView, onRemove }) => {
 	const dispatch = useDispatch();
 	const [isEditing, setIsEditing] = useState(false);
 	const [editValue, setEditValue] = useState(task.title);
@@ -21,6 +24,9 @@ const Task: React.FC<TaskProps> = memo(({ task, isFullView }) => {
 		setIsChanging(true);
 		setTimeout(() => {
 			dispatch(removeTask(task.id));
+			if (onRemove) {
+				onRemove();
+			}
 		}, 300);
 	};
 
@@ -60,9 +66,20 @@ const Task: React.FC<TaskProps> = memo(({ task, isFullView }) => {
 		}
 	};
 
-	const handleTaskClick = () => {
-		console.log('Relocate to task page');
+	const handleDoubleClick = () => {
+		if (isFullView) {
+			handleEditStart();
+		}
 	};
+
+	const TaskLabel = () => (
+		<label
+			onDoubleClick={handleDoubleClick}
+			className={styles.label + ' ' + (task.completed ? styles.completed : '')}
+		>
+			{task.id}. {task.title}
+		</label>
+	);
 
 	return (
 		<li
@@ -86,16 +103,11 @@ const Task: React.FC<TaskProps> = memo(({ task, isFullView }) => {
 					className={`${styles.input}`}
 					autoFocus
 				/>
+			) : isFullView ? (
+				<TaskLabel />
 			) : (
-				<Link href={`/tasks/${task.id}`}>
-					<label
-						className={
-							styles.label + ' ' + (task.completed ? styles.completed : '')
-						}
-						onClick={handleTaskClick}
-					>
-						{task.id}. {task.title}
-					</label>
+				<Link className={styles.labelSmallView} href={`/tasks/${task.id}`}>
+					<TaskLabel />
 				</Link>
 			)}
 			{isFullView && (
@@ -108,7 +120,7 @@ const Task: React.FC<TaskProps> = memo(({ task, isFullView }) => {
 					className={styles.removeIcon}
 					src="/img/rubbish-bin.svg"
 					alt="Cross icon"
-				></img>
+				/>
 			</button>
 		</li>
 	);

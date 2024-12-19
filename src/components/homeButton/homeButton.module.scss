@@ -1,0 +1,21 @@
+.link {
+	background: none;
+	border: 0;
+	color: #888;
+	cursor: pointer;
+	font-family: Lato, sans-serif;
+	font-size: 15px;
+	outline: none;
+	transition: color 0.2s ease-in;
+	text-align: center;
+
+	&:active {
+		color: #3a3a3a;
+	}
+
+	@media (hover: hover) {
+		&:hover {
+			color: #3a3a3a;
+		}
+	}
+}
