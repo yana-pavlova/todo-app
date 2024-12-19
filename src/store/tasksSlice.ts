@@ -43,8 +43,9 @@ const tasksSlice = createSlice({
 	name: 'tasks',
 	initialState,
 	reducers: {
+		// таски добавляются в начало массива
 		addTask: (state, action: PayloadAction<TTask>) => {
-			state.tasks.push(action.payload);
+			state.tasks.unshift(action.payload);
 		},
 		removeTask: (state, action: PayloadAction<number>) => {
 			state.tasks = state.tasks.filter((task) => task.id !== action.payload);
@@ -108,9 +109,6 @@ export const selectCompletedTasks = createSelector(
 	(tasks: TTask[]) => tasks.filter((task) => task.completed)
 );
 export const selectTaskById = createSelector(
-	[
-		selectTasks,
-		(_state: RootState, taskId: number) => taskId
-	],
+	[selectTasks, (_state: RootState, taskId: number) => taskId],
 	(tasks, taskId) => tasks.find((task) => task.id === taskId)
 );

@@ -18,7 +18,6 @@ const Task: React.FC<TaskProps> = memo(({ task, isFullView, onRemove }) => {
 	const [isEditing, setIsEditing] = useState(false);
 	const [editValue, setEditValue] = useState(task.title);
 	const [isChanging, setIsChanging] = useState(false);
-	const taskRef = useRef<HTMLLIElement>(null);
 
 	const handleRemove = () => {
 		setIsChanging(true);
@@ -83,7 +82,6 @@ const Task: React.FC<TaskProps> = memo(({ task, isFullView, onRemove }) => {
 
 	return (
 		<li
-			ref={taskRef}
 			className={`${styles.task} ${isChanging ? styles.removing : ''} ${
 				isFullView ? styles.fullView : ''
 			}`}

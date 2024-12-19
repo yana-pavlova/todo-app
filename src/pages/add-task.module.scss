@@ -1,0 +1,19 @@
+.section {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.textarea {
+	inline-size: 100%;
+	max-inline-size: 100%;
+	min-inline-size: 100%;
+	padding: 7px;
+	min-height: calc(1em * 3);
+}
