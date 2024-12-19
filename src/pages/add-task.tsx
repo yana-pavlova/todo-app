@@ -15,12 +15,6 @@ const AddTask: React.FC = () => {
 		ref.current?.focus();
 	}, []);
 
-	useEffect(() => {
-		if (!tasks.length) {
-			dispatch(fetchTasks('https://jsonplaceholder.typicode.com/todos'));
-		}
-	}, []);
-
 	const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
 		e.target.style.height = 'auto';
 		e.target.style.height = `${e.target.scrollHeight}px`;

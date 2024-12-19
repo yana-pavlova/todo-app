@@ -1,25 +1,16 @@
 import React, { useEffect } from 'react';
 import Link from 'next/link';
 import styles from '../components/app/app.module.scss';
-import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch, RootState } from '../store/store';
-import { fetchTasks } from '../store/tasksSlice';
+import { useSelector } from 'react-redux';
+import { RootState } from '../store/store';
 import TaskList from '../components/taskList/TaskList';
 import { TaskType } from '../types';
 import UpButton from '../components/upButton/UpButton';
 import Heading from '../components/heading/Heading';
 
 const Home: React.FC = () => {
-	const dispatch = useDispatch<AppDispatch>();
 	const loading = useSelector((state: RootState) => state.tasks.loading);
 	const error = useSelector((state: RootState) => state.tasks.error);
-
-	const tasks = useSelector((state: RootState) => state.tasks.tasks);
-
-	useEffect(() => {
-		if (tasks.length) return;
-		dispatch(fetchTasks('https://jsonplaceholder.typicode.com/todos'));
-	}, [dispatch]);
 
 	return (
 		<>
