@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import styles from '../components/app/app.module.scss';
+import styles from './styles.module.scss';
 import { useSelector } from 'react-redux';
 import { RootState } from '../store/store';
 import TaskList from '../components/taskList/TaskList';

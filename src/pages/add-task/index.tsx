@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import HomeButton from '../components/homeButton/HomeButton';
-import Heading from '../components/heading/Heading';
-import styles from './add-task.module.scss';
+import HomeButton from '../../components/homeButton/HomeButton';
+import Heading from '../../components/heading/Heading';
+import styles from './styles.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { addTask, selectTasks } from '../store/tasksSlice';
-import { TTask } from '../types';
+import { addTask, selectTasks } from '../../store/tasksSlice';
+import { TTask } from '../../types';
 import { useRouter } from 'next/router';
 
 const AddTask: React.FC = () => {

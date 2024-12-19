@@ -6,7 +6,7 @@ import { RootState } from '../../store/store';
 import Task from '../../components/task/Task';
 import HomeButton from '../../components/homeButton/HomeButton';
 import Heading from '../../components/heading/Heading';
-import styles from './task.module.scss';
+import styles from './styles.module.scss';
 
 const TaskPage: React.FC = () => {
 	const router = useRouter();
