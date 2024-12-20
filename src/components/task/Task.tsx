@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { removeTask, editTask, completeTask } from '../../store/tasksSlice';
 import { TTask } from '../../types';
 import styles from './task.module.scss';
-import Button from '../Button/Button';
+import Button from '../button/Button';
 
 interface TaskProps {
 	task: TTask;

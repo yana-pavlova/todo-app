@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addTask, selectTasks } from '../../store/tasksSlice';
 import { TTask } from '../../types';
 import { useRouter } from 'next/router';
-import Button from '../../components/Button/Button';
+import Button from '../../components/button/Button';
 
 const AddTask: React.FC = () => {
 	const dispatch = useDispatch();

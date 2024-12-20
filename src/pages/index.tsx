@@ -7,7 +7,7 @@ import TaskList from '../components/taskList/TaskList';
 import { TaskType } from '../types';
 import UpButton from '../components/upButton/UpButton';
 import Heading from '../components/heading/Heading';
-import Button from '../components/Button/Button';
+import Button from '../components/button/Button';
 
 const Home: React.FC = () => {
 	const loading = useSelector((state: RootState) => state.tasks.loading);
