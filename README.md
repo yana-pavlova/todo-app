@@ -6,7 +6,6 @@ Try it here: <a href="https://your-best-todo.netlify.app/">https://your-best-tod
 
 - Typescript
 - React
-- Redux
 - Redux toolkit
 - Next
 
