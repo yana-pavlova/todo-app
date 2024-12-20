@@ -21,6 +21,28 @@
 		transform: translateY(20px);
 	}
 
+	&:not(.fullView) {
+		.label {
+			display: inline-block;
+			inline-size: 100%;
+			color: inherit;
+			transition: color 0.2s ease-in;
+			white-space: pre-wrap;
+			word-break: break-word;
+
+			&:active {
+				color: #888;
+			}
+
+			@media (hover: hover) {
+				&:hover {
+					cursor: pointer;
+					color: #888;
+				}
+			}
+		}
+	}
+
 	@media (max-width: 499px) {
 		&:not(.fullView) {
 			grid-template-columns: 1fr 1fr;
@@ -42,26 +64,6 @@
 	}
 }
 
-.label {
-	display: inline-block;
-	inline-size: 100%;
-	color: inherit;
-	transition: color 0.2s ease-in;
-	white-space: pre-wrap;
-	word-break: break-word;
-
-	&:active {
-		color: #888;
-	}
-
-	@media (hover: hover) {
-		&:hover {
-			cursor: pointer;
-			color: #888;
-		}
-	}
-}
-
 .input {
 	grid-column: 1/4;
 }
@@ -74,21 +76,4 @@
 .completed {
 	color: #888;
 	text-decoration: line-through;
-}
-
-.removeIcon {
-	block-size: 20px;
-	inline-size: 20px;
-	transform: rotateZ(0);
-	transition: transform 200ms ease-in;
-
-	&:active {
-		transform: rotateZ(25deg);
-	}
-
-	@media (hover: hover) {
-		&:hover {
-			transform: rotateZ(25deg);
-		}
-	}
 }
