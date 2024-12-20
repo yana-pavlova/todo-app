@@ -1,0 +1,68 @@
+.button {
+	border: none;
+	border-radius: 5px;
+	padding: 10px 20px;
+	cursor: pointer;
+	background-color: transparent;
+	color: #333;
+	transition: background-color 0.2s ease-in, color 0.2s ease-in;
+}
+
+.success {
+	background-color: transparent;
+	color: #15ab9b;
+	outline: 2px solid #15ab9b;
+	outline-offset: -2px;
+
+	&:active {
+		background-color: #15ab9b;
+		color: #fff;
+	}
+
+	@media (hover: hover) {
+		&:hover {
+			background-color: #15ab9b;
+			color: #fff;
+		}
+	}
+}
+
+.danger {
+	background-color: transparent;
+	color: #b1146d;
+	outline: 2px solid #b1146d;
+	outline-offset: -2px;
+
+	&:active {
+		background-color: #b1146d;
+		color: #fff;
+	}
+
+	@media (hover: hover) {
+		&:hover {
+			background-color: #b1146d;
+			color: #fff;
+		}
+	}
+}
+
+.default {
+	background-color: transparent;
+	color: #333;
+	outline: 2px solid #333;
+	outline-offset: -2px;
+
+	&:active {
+		background-color: #333;
+		border: none;
+		color: #fff;
+	}
+
+	@media (hover: hover) {
+		&:hover {
+			background-color: #333;
+			border: none;
+			color: #fff;
+		}
+	}
+}
