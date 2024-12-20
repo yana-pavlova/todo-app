@@ -1,4 +1,4 @@
-// TODO separate fullView/smallView modes into different components
+//? separate fullView/smallView modes into different components
 
 import Link from 'next/link';
 import { memo, useState } from 'react';
