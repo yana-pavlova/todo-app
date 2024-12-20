@@ -1,7 +1,6 @@
 // TODO separate fullView/smallView modes into different components
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { memo, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { removeTask, editTask, completeTask } from '../../store/tasksSlice';
@@ -19,10 +18,10 @@ const TaskComponent: React.FC<TaskProps> = ({ task, isFullView, onRemove }) => {
 	const dispatch = useDispatch();
 	const [isEditing, setIsEditing] = useState(false);
 	const [editValue, setEditValue] = useState(task.title);
-	const [isChanging, setIsChanging] = useState(false);
+	const [isRemoving, setIsRemoving] = useState(false);
 
 	const handleRemove = () => {
-		setIsChanging(true);
+		setIsRemoving(true);
 		setTimeout(() => {
 			dispatch(removeTask(task.id));
 			if (onRemove) {
@@ -46,9 +45,13 @@ const TaskComponent: React.FC<TaskProps> = ({ task, isFullView, onRemove }) => {
 		if (event.key === 'Enter') {
 			handleEditEnd();
 		} else if (event.key === 'Escape') {
-			setEditValue(task.title);
-			setIsEditing(false);
+			handleCancel();
 		}
+	};
+
+	const handleCancel = () => {
+		setEditValue(task.title);
+		setIsEditing(false);
 	};
 
 	const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -60,7 +63,7 @@ const TaskComponent: React.FC<TaskProps> = ({ task, isFullView, onRemove }) => {
 			dispatch(completeTask({ ...task, completed: !task.completed }));
 			return;
 		} else {
-			setIsChanging(true);
+			setIsRemoving(true);
 			setTimeout(() => {
 				dispatch(completeTask({ ...task, completed: !task.completed }));
 			}, 300);
@@ -84,7 +87,7 @@ const TaskComponent: React.FC<TaskProps> = ({ task, isFullView, onRemove }) => {
 
 	return (
 		<li
-			className={`${styles.task} ${isChanging ? styles.removing : ''} ${
+			className={`${styles.task} ${isRemoving ? styles.removing : ''} ${
 				isFullView ? styles.fullView : ''
 			}`}
 			key={task.id}
@@ -94,7 +97,7 @@ const TaskComponent: React.FC<TaskProps> = ({ task, isFullView, onRemove }) => {
 					value={editValue}
 					onChange={handleInputChange}
 					onKeyDown={handleKeyDown}
-					className={`${styles.input}`}
+					className={styles.input}
 					autoFocus
 				/>
 			) : isFullView ? (
@@ -104,24 +107,47 @@ const TaskComponent: React.FC<TaskProps> = ({ task, isFullView, onRemove }) => {
 					<TaskLabel />
 				</Link>
 			)}
-			{isFullView && (
-				<Button type="button" onClick={handleEditStart}>
-					Edit
-				</Button>
+			{isFullView && !isEditing && (
+				<>
+					<Button type="button" onClick={handleEditStart}>
+						Edit
+					</Button>
+					<Button
+						type="button"
+						onClick={handleComplete}
+						semantic={task.completed ? 'danger' : 'success'}
+					>
+						{task.completed ? 'Uncomplete' : 'Complete'}
+					</Button>
+					<Button type="button" onClick={handleRemove} semantic="danger">
+						Delete
+					</Button>
+				</>
 			)}
-			<Button type="button" onClick={handleComplete}>
-				{task.completed ? 'Uncomplete' : 'Complete'}
-			</Button>
-			<button className={`${styles.button} ${styles.fullRow}`}>
-				<Image
-					onClick={handleRemove}
-					className={styles.removeIcon}
-					src="/img/rubbish-bin.svg"
-					alt="Cross icon"
-					width={0}
-					height={0}
-				/>
-			</button>
+			{isFullView && isEditing && (
+				<>
+					<Button type="button" onClick={handleEditEnd} semantic="success">
+						Save
+					</Button>
+					<Button type="button" onClick={handleCancel} semantic="danger">
+						Cancel
+					</Button>
+				</>
+			)}
+			{!isFullView && (
+				<>
+					<Button
+						type="button"
+						onClick={handleComplete}
+						semantic={task.completed ? 'danger' : 'success'}
+					>
+						{task.completed ? 'Uncomplete' : 'Complete'}
+					</Button>
+					<Button type="button" onClick={handleRemove} semantic="danger">
+						Delete
+					</Button>
+				</>
+			)}
 		</li>
 	);
 };

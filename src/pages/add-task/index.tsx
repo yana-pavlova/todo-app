@@ -62,7 +62,9 @@ const AddTask: React.FC = () => {
 					className={styles.textarea}
 					name="taskName"
 				/>
-				<Button type="submit">Add Task</Button>
+				<Button type="submit" semantic="success">
+					Add Task
+				</Button>
 			</form>
 			<HomeButton />
 		</section>
