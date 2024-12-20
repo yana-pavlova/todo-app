@@ -112,11 +112,7 @@ const TaskComponent: React.FC<TaskProps> = ({ task, isFullView, onRemove }) => {
 					<Button type="button" onClick={handleEditStart}>
 						Edit
 					</Button>
-					<Button
-						type="button"
-						onClick={handleComplete}
-						semantic={task.completed ? 'danger' : 'success'}
-					>
+					<Button type="button" onClick={handleComplete} semantic="success">
 						{task.completed ? 'Uncomplete' : 'Complete'}
 					</Button>
 					<Button type="button" onClick={handleRemove} semantic="danger">
@@ -136,11 +132,7 @@ const TaskComponent: React.FC<TaskProps> = ({ task, isFullView, onRemove }) => {
 			)}
 			{!isFullView && (
 				<>
-					<Button
-						type="button"
-						onClick={handleComplete}
-						semantic={task.completed ? 'danger' : 'success'}
-					>
+					<Button type="button" onClick={handleComplete} semantic="success">
 						{task.completed ? 'Uncomplete' : 'Complete'}
 					</Button>
 					<Button type="button" onClick={handleRemove} semantic="danger">
