@@ -15,11 +15,13 @@ const TaskList: React.FC<TaskListProps> = ({ type }) => {
 	);
 
 	return (
-		<ul className={styles.list}>
-			{tasks.map((task) => (
-				<Task key={task.id} task={task} isFullView={false} />
-			))}
-		</ul>
+		<>
+			<ul className={styles.list}>
+				{tasks.map((task) => (
+					<Task key={task.id} task={task} isFullView={false} />
+				))}
+			</ul>
+		</>
 	);
 };
 

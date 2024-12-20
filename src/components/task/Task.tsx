@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import { removeTask, editTask, completeTask } from '../../store/tasksSlice';
 import { TTask } from '../../types';
 import styles from './task.module.scss';
+import Button from '../Button/Button';
 
 interface TaskProps {
 	task: TTask;
@@ -88,12 +89,6 @@ const TaskComponent: React.FC<TaskProps> = ({ task, isFullView, onRemove }) => {
 			}`}
 			key={task.id}
 		>
-			<input
-				onChange={handleComplete}
-				className={styles.checkbox}
-				type="checkbox"
-				checked={task.completed}
-			/>
 			{isEditing ? (
 				<input
 					value={editValue}
@@ -110,11 +105,14 @@ const TaskComponent: React.FC<TaskProps> = ({ task, isFullView, onRemove }) => {
 				</Link>
 			)}
 			{isFullView && (
-				<button className={styles.button} onClick={handleEditStart}>
+				<Button type="button" onClick={handleEditStart}>
 					Edit
-				</button>
+				</Button>
 			)}
-			<button className={styles.button}>
+			<Button type="button" onClick={handleComplete}>
+				{task.completed ? 'Uncomplete' : 'Complete'}
+			</Button>
+			<button className={`${styles.button} ${styles.fullRow}`}>
 				<Image
 					onClick={handleRemove}
 					className={styles.removeIcon}

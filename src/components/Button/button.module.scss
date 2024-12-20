@@ -1,0 +1,25 @@
+.button {
+	background-color: #333;
+	color: #fff;
+	border: none;
+	border-radius: 4px;
+	padding: 10px 20px;
+	cursor: pointer;
+	transition: background-color 0.2s ease-in, color 0.2s ease-in;
+
+	&:active {
+		background-color: transparent;
+		color: #333;
+		outline: 2px solid #333;
+		outline-offset: -2px;
+	}
+
+	@media (hover: hover) {
+		&:hover {
+			background-color: transparent;
+			color: #333;
+			outline: 2px solid #333;
+			outline-offset: -2px;
+		}
+	}
+}

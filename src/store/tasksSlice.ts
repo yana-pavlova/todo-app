@@ -104,19 +104,8 @@ export const { addTask, removeTask, completeTask, editTask } =
 	tasksSlice.actions;
 
 export const selectTasks = (state: RootState) => state.tasks.tasks;
-// export const selectOpenedTasks = createSelector(
-// 	[selectTasks],
-// 	(tasks: TTask[]) => tasks.filter((task) => !task.completed)
-// );
-// export const selectCompletedTasks = createSelector(
-// 	[selectTasks],
-// 	(tasks: TTask[]) => tasks.filter((task) => task.completed)
-// );
 export const selectTasksByType = createSelector(
-	[
-		selectTasks,
-		(_state: RootState, type: TaskType) => type,
-	],
+	[selectTasks, (_state: RootState, type: TaskType) => type],
 	(tasks, type) =>
 		type === TaskType.Completed
 			? tasks.filter((task) => task.completed)

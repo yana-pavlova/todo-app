@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addTask, selectTasks } from '../../store/tasksSlice';
 import { TTask } from '../../types';
 import { useRouter } from 'next/router';
+import Button from '../../components/Button/Button';
 
 const AddTask: React.FC = () => {
 	const dispatch = useDispatch();
@@ -61,7 +62,7 @@ const AddTask: React.FC = () => {
 					className={styles.textarea}
 					name="taskName"
 				/>
-				<button type="submit">Add Task</button>
+				<Button type="submit">Add Task</Button>
 			</form>
 			<HomeButton />
 		</section>

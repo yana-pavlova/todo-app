@@ -7,6 +7,7 @@ import TaskList from '../components/taskList/TaskList';
 import { TaskType } from '../types';
 import UpButton from '../components/upButton/UpButton';
 import Heading from '../components/heading/Heading';
+import Button from '../components/Button/Button';
 
 const Home: React.FC = () => {
 	const loading = useSelector((state: RootState) => state.tasks.loading);
@@ -31,7 +32,7 @@ const Home: React.FC = () => {
 					<section>
 						<Heading>Want to add a task?</Heading>
 						<Link href={'/add-task'} className={styles.addButton}>
-							Add a task!
+							<Button type="submit">Add a task!</Button>
 						</Link>
 					</section>
 					<section id="uncompleted">
