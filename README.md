@@ -14,5 +14,11 @@ Try it here: <a href="https://your-best-todo.netlify.app/">https://your-best-tod
 ```
 npm i
 npm run build
-np, run start
+npm run start
+```
+
+## Run test
+
+```
+npm test
 ```
