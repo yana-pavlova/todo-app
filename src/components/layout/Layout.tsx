@@ -12,7 +12,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 			</header>
 			<main className={styles.main}>{children}</main>
 			<footer className={styles.footer}>
-				<p>© 2024 ToDo List</p>
+				<p>© 2025 ToDo List</p>
 			</footer>
 		</>
 	);
