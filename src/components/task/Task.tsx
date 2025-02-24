@@ -22,12 +22,10 @@ const TaskComponent: React.FC<TaskProps> = ({ task, isFullView, onRemove }) => {
 
 	const handleRemove = () => {
 		setIsRemoving(true);
-		setTimeout(() => {
 			dispatch(removeTask(task.id));
 			if (onRemove) {
 				onRemove();
 			}
-		}, 300);
 	};
 
 	const handleEditStart = () => {
@@ -64,9 +62,7 @@ const TaskComponent: React.FC<TaskProps> = ({ task, isFullView, onRemove }) => {
 			return;
 		} else {
 			setIsRemoving(true);
-			setTimeout(() => {
 				dispatch(completeTask({ ...task, completed: !task.completed }));
-			}, 300);
 		}
 	};
 
