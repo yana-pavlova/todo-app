@@ -6,6 +6,7 @@ export type TTask = {
 };
 
 export enum TaskType {
+	All = 'all',
 	Completed = 'completed',
 	Uncompleted = 'uncompleted',
 }
