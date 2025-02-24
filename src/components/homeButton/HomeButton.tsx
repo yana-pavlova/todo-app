@@ -1,10 +1,10 @@
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 import styles from './homeButton.module.scss';
 
-const HomeButton: React.FC = () => {
+const HomeButton = () => {
 	return (
-		<Link className={styles.link} href="/">
-			Go home
+		<Link to="/" className={styles.button}>
+			Go back
 		</Link>
 	);
 };

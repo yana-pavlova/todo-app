@@ -1,6 +1,6 @@
 //? separate fullView/smallView modes into different components
 
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 import { memo, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { removeTask, editTask, completeTask } from '../../store/tasksSlice';
@@ -103,7 +103,7 @@ const TaskComponent: React.FC<TaskProps> = ({ task, isFullView, onRemove }) => {
 			) : isFullView ? (
 				<TaskLabel />
 			) : (
-				<Link className={styles.labelSmallView} href={`/tasks/${task.id}`}>
+				<Link className={styles.labelSmallView} to={`/tasks/${task.id}`}>
 					<TaskLabel />
 				</Link>
 			)}

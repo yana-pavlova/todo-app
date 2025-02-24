@@ -5,14 +5,14 @@ import styles from './styles.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { addTask, selectTasks } from '../../store/tasksSlice';
 import { TTask } from '../../types';
-import { useRouter } from 'next/router';
+import { useNavigate } from 'react-router-dom';
 import Button from '../../components/button/Button';
 
 const AddTask: React.FC = () => {
 	const dispatch = useDispatch();
 	const tasks = useSelector(selectTasks);
 	const ref = React.useRef<HTMLTextAreaElement>(null);
-	const router = useRouter();
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		ref.current?.focus();
@@ -47,7 +47,7 @@ const AddTask: React.FC = () => {
 			ref.current.style.height = 'auto';
 		}
 
-		router.push('/');
+		navigate('/');
 	};
 
 	return (

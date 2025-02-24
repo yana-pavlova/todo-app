@@ -7,11 +7,12 @@ Try it here: <a href="https://your-best-todo.netlify.app/">https://your-best-tod
 - Typescript
 - React
 - Redux toolkit
-- Next
+- Vite
 
 ## How to run the project
 
 ```
 npm i
-npm run dev
+npm run build
+np, run start
 ```

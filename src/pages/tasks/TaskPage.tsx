@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useRouter } from 'next/router';
+import { useParams } from 'react-router-dom';
 import { selectTaskById } from '../../store/tasksSlice';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
@@ -9,8 +9,8 @@ import Heading from '../../components/heading/Heading';
 import styles from './styles.module.scss';
 
 const TaskPage: React.FC = () => {
-	const router = useRouter();
-	const taskId = Number(router.query.id);
+	const { id } = useParams();
+	const taskId = Number(id);
 	const [isRemoved, setIsRemoved] = useState(false);
 
 	const task = useSelector((state: RootState) =>
