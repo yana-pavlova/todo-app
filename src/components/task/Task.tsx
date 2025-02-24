@@ -22,10 +22,10 @@ const TaskComponent: React.FC<TaskProps> = ({ task, isFullView, onRemove }) => {
 
 	const handleRemove = () => {
 		setIsRemoving(true);
-			dispatch(removeTask(task.id));
-			if (onRemove) {
-				onRemove();
-			}
+		dispatch(removeTask(task.id));
+		if (onRemove) {
+			onRemove();
+		}
 	};
 
 	const handleEditStart = () => {
@@ -62,7 +62,7 @@ const TaskComponent: React.FC<TaskProps> = ({ task, isFullView, onRemove }) => {
 			return;
 		} else {
 			setIsRemoving(true);
-				dispatch(completeTask({ ...task, completed: !task.completed }));
+			dispatch(completeTask({ ...task, completed: !task.completed }));
 		}
 	};
 
@@ -77,7 +77,7 @@ const TaskComponent: React.FC<TaskProps> = ({ task, isFullView, onRemove }) => {
 			onDoubleClick={handleDoubleClick}
 			className={styles.label + ' ' + (task.completed ? styles.completed : '')}
 		>
-			{task.id}. {task.title}
+			{task.title}
 		</label>
 	);
 
