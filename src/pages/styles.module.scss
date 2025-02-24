@@ -50,3 +50,21 @@
 		}
 	}
 }
+
+.controls {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.filters {
+	display: flex;
+	gap: 10px;
+}
+
+.list {
+	margin-top: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
