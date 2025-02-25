@@ -9,11 +9,14 @@ import './styles/fonts.css';
 import './styles/globals.scss';
 import './styles/common.scss';
 
+const isGitHubPages = window.location.hostname.includes('github.io');
+const basename = isGitHubPages ? '/todo-app' : '/';
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
 	<React.StrictMode>
 		<Provider store={store}>
 			<TasksProvider>
-				<BrowserRouter>
+				<BrowserRouter basename={basename}>
 					<App />
 				</BrowserRouter>
 			</TasksProvider>

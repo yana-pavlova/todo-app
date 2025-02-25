@@ -9,6 +9,7 @@
 		"dev": "vite",
 		"prebuild": "npm run lint && npm run fix",
 		"build": "vite build",
+		"build:gh": "VITE_GH_PAGES=true vite build",
 		"prestart": "npm run lint && npm run fix",
 		"start": "vite preview",
 		"lint": "eslint src",
@@ -16,8 +17,7 @@
 		"test": "vitest",
 		"test:coverage": "vitest run --coverage",
 		"test:ui": "vitest --ui",
-		"predeploy": "npm run build",
-		"deploy": "gh-pages -d dist"
+		"deploy": "npm run build:gh && gh-pages -d dist"
 	},
 	"keywords": [],
 	"author": "",
